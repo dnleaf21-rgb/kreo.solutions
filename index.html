@@ -10,8 +10,9 @@
 <meta property="og:title" content="KREO SOLUTIONS - Mantenimiento de Montacargas">
 <meta property="og:description" content="Servicio técnico especializado en montacargas a gas y diésel. 20+ años en Lima. Cotización sin costo.">
 <meta property="og:image" content="https://kreosolutions.services/assets/hero-flota.jpg">
-<link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"KREO SOLUTIONS E.I.R.L.","description":"Mantenimiento preventivo y correctivo de montacargas a gas y diésel en Lima.","telephone":"+51900900003","url":"https://kreosolutions.services","address":{"@type":"PostalAddress","addressLocality":"Villa El Salvador","addressRegion":"Lima","addressCountry":"PE"},"openingHours":"Mo-Sa 08:00-20:00","priceRange":"S/"}</script>
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0f1a;color:#e5e7eb;font-family:'Segoe UI',system-ui,sans-serif}
 .header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px 24px;background:rgba(10,15,26,.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
 .header nav a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;margin-left:18px}.header nav a:hover{color:#fff}
@@ -24,21 +25,53 @@ body{background:#0a0f1a;color:#e5e7eb;font-family:'Segoe UI',system-ui,sans-seri
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:#0a0f1a;padding:28px 24px;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);text-align:center}
 .stats b{color:#FB542B;font-size:28px;display:block}
 .stats span{color:rgba(255,255,255,.5);font-size:10px;letter-spacing:1px}
-.brands{background:#111827;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;opacity:.9}
-.brands span{font-weight:800;font-size:12px;color:#9ca3af;letter-spacing:.5px}
-.cta{background:#0f172a;padding:36px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
-.cta h3{font-size:22px;font-weight:900;color:#fff}
 .services{padding:40px 24px;background:#0a0f1a}
 .services h2{font-size:22px;font-weight:900;color:#fff}
 .card3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
 .card3>div{background:#111827;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px;position:relative;overflow:hidden}
 .card3>div b{position:absolute;right:12px;top:8px;font-size:42px;color:rgba(255,255,255,.06);font-weight:900}
 .banner{min-height:280px;background:linear-gradient(90deg,rgba(5,8,15,.88),rgba(5,8,15,.45)),url('assets/banner-flota.jpg') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:36px 24px}
-.dif{padding:40px 24px;background:#0a0f1a}
 @media(max-width:760px){.hero h1{font-size:30px}.stats{grid-template-columns:1fr 1fr}.card3{grid-template-columns:1fr}.hero{padding:80px 16px 30px}}
+html{scroll-behavior:smooth}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+.k-mono{animation:kGlow 5s ease-in-out infinite}
+@keyframes kGlow{0%,100%{opacity:.8}50%{opacity:1}}
+#waBtn{position:relative}
+#waBtn::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:waPulse 2s ease-out infinite;pointer-events:none}
+@keyframes waPulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.btn-brave{transition:transform .2s,box-shadow .2s}
+.btn-brave:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(251,84,43,.45)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.k-mono,#waBtn::after{animation:none}}
+.marquee{overflow:hidden;white-space:nowrap;background:linear-gradient(90deg,#FB542B,#ff8a3d,#FB542B);padding:10px 0}
+.marquee>div{display:inline-block;font-weight:900;font-size:13px;letter-spacing:2px;color:#0a0f1a;padding-left:24px;animation:marq 12s linear infinite}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.btn-brave{position:relative;overflow:hidden}
+.btn-brave::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shineMove 3.2s ease-in-out infinite;pointer-events:none}
+@keyframes shineMove{0%{left:-60%}60%,100%{left:130%}}
+.card3{perspective:900px}
+.card3>div{transition:transform .25s ease,box-shadow .25s ease}
+#dust{position:absolute;inset:0;pointer-events:none}
+.banner{background-attachment:fixed}
+@media(max-width:760px){.banner{background-attachment:scroll}}
+@media (prefers-reduced-motion:reduce){.marquee>div,.btn-brave::after{animation:none}}
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,#FB542B,#ff8a3d);z-index:9999}
+.header nav a{position:relative}
+.header nav a::after{content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;background:#FB542B;border-radius:99px;transition:width .25s ease}
+.header nav a:hover::after{width:100%}
+@property --ga{syntax:'<angle>';initial-value:0deg;inherits:false}
+.card3>div::before{content:"";position:absolute;inset:0;border-radius:12px;padding:1.5px;background:conic-gradient(from var(--ga),transparent 0 68%,#FB542B 85%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinB 4.5s linear infinite;pointer-events:none}
+.card3>div:nth-child(2)::before{animation-delay:-1.5s}
+.card3>div:nth-child(3)::before{animation-delay:-3s}
+@keyframes spinB{to{--ga:360deg}}
+.marquee2{overflow:hidden;white-space:nowrap;background:#0a0f1a;border-top:1px solid rgba(251,84,43,.25);border-bottom:1px solid rgba(251,84,43,.25);padding:10px 0}
+.marquee2>div{display:inline-block;font-weight:900;font-size:13px;letter-spacing:2px;color:#FB542B;padding-left:24px;animation:marqR 15s linear infinite}
+@keyframes marqR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.marquee2>div{animation:none}}
 </style>
 </head>
 <body>
+<div id="prog"></div>
 <header class="header">
   <div style="display:flex;align-items:center;">
     <a href="#inicio" style="display:inline-flex;align-items:center;"><img src="assets/logo-dark.png" alt="KREO SOLUTIONS" style="height:38px;width:auto;object-fit:contain;"></a>
@@ -49,10 +82,11 @@ body{background:#0a0f1a;color:#e5e7eb;font-family:'Segoe UI',system-ui,sans-seri
 </header>
 
 <section id="inicio" class="hero">
+  <canvas id="dust"></canvas>
   <div class="k-mono">K</div>
   <div style="max-width:640px;width:100%;margin:0 auto;text-align:center;text-shadow:0 2px 18px rgba(0,0,0,.7);position:relative;z-index:2;">
     <div>
-      <h1 style="margin-left:auto;margin-right:auto;">Mantenimiento de Montacargas que No Para tu Operación</h1>
+      <h1 id="typeTitle" style="margin-left:auto;margin-right:auto;">Mantenimiento de Montacargas que No Para tu Operación</h1>
       <p style="margin-left:auto;margin-right:auto;">Más de 20 años de experiencia en servicio técnico especializado para flotas industriales. Mantenimiento preventivo, correctivo y reparación de todas las marcas en Lima, Perú.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
         <a href="#servicios" class="btn-outline" style="border-radius:999px;">Ver Servicios</a>
@@ -61,11 +95,13 @@ body{background:#0a0f1a;color:#e5e7eb;font-family:'Segoe UI',system-ui,sans-seri
   </div>
 </section>
 
+<div class="marquee"><div>MANTENIMIENTO PREVENTIVO ✦ REPARACIÓN MULTIMARCA ✦ VENTA DE REPUESTOS ✦ ATENCIÓN 24H ✦ GARANTÍA REAL ✦ LUN–SÁB 8AM–8PM ✦ MANTENIMIENTO PREVENTIVO ✦ REPARACIÓN MULTIMARCA ✦ VENTA DE REPUESTOS ✦ ATENCIÓN 24H ✦ GARANTÍA REAL ✦ LUN–SÁB 8AM–8PM ✦&nbsp;</div></div>
+
 <div class="stats">
-  <div><b>20+</b><span>AÑOS DE EXPERIENCIA</span></div>
-  <div><b>Todas</b><span>LAS MARCAS ATENDIDAS</span></div>
-  <div><b>24h</b><span>TIEMPO DE RESPUESTA</span></div>
-  <div><b>100%</b><span>COMPROMISO TÉCNICO</span></div>
+  <div><b>20+</b><span>AÑOS DE EXPERIENCIA</span><div style="height:4px;background:rgba(255,255,255,.1);border-radius:99px;margin-top:8px;overflow:hidden;"><div class="bar" data-w="85" style="height:100%;width:0;background:linear-gradient(90deg,#FB542B,#ff8a3d);border-radius:99px;transition:width 1.4s ease;"></div></div></div>
+  <div><b>Todas</b><span>LAS MARCAS ATENDIDAS</span><div style="height:4px;background:rgba(255,255,255,.1);border-radius:99px;margin-top:8px;overflow:hidden;"><div class="bar" data-w="100" style="height:100%;width:0;background:linear-gradient(90deg,#FB542B,#ff8a3d);border-radius:99px;transition:width 1.4s ease;"></div></div></div>
+  <div><b>24h</b><span>TIEMPO DE RESPUESTA</span><div style="height:4px;background:rgba(255,255,255,.1);border-radius:99px;margin-top:8px;overflow:hidden;"><div class="bar" data-w="70" style="height:100%;width:0;background:linear-gradient(90deg,#FB542B,#ff8a3d);border-radius:99px;transition:width 1.4s ease;"></div></div></div>
+  <div><b>100%</b><span>COMPROMISO TÉCNICO</span><div style="height:4px;background:rgba(255,255,255,.1);border-radius:99px;margin-top:8px;overflow:hidden;"><div class="bar" data-w="100" style="height:100%;width:0;background:linear-gradient(90deg,#FB542B,#ff8a3d);border-radius:99px;transition:width 1.4s ease;"></div></div></div>
 </div>
 
 
@@ -88,6 +124,8 @@ body{background:#0a0f1a;color:#e5e7eb;font-family:'Segoe UI',system-ui,sans-seri
     <div style="margin-top:14px;"><a href="https://wa.me/51900900003?text=Hola%20KREO%2C%20quiero%20cotizar%20un%20servicio" target="_blank" class="btn-brave" style="border-radius:999px;">Cotizar mi servicio →</a></div>
   </div>
 </div>
+
+<div class="marquee2"><div>TOYOTA ✦ CATERPILLAR ✦ HYSTER ✦ YALE ✦ CROWN ✦ MITSUBISHI ✦ KOMATSU ✦ HYUNDAI ✦ LINDE ✦ TOYOTA ✦ CATERPILLAR ✦ HYSTER ✦ YALE ✦ CROWN ✦ MITSUBISHI ✦ KOMATSU ✦ HYUNDAI ✦ LINDE ✦&nbsp;</div></div>
 
 <section id="nosotros" style="padding:40px 24px;background:#0a0f1a;">
   <div style="color:#FB542B;font-size:10px;letter-spacing:2px;font-weight:800;display:flex;align-items:center;gap:8px;"><span style="width:24px;height:1px;background:#FB542B;display:inline-block;"></span> DIFERENCIAL</div>
@@ -159,9 +197,21 @@ body{background:#0a0f1a;color:#e5e7eb;font-family:'Segoe UI',system-ui,sans-seri
       </div>
     </div>
   </div>
+  <a href="tel:+51900900003" aria-label="Llamar ahora" style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#FB542B,#ff8a3d);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(251,84,43,.4);margin-bottom:10px;"><svg viewBox="0 0 24 24" width="26" height="26" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
   <button id="waBtn" style="width:56px;height:56px;border-radius:50%;background:#25D366;border:none;box-shadow:0 8px 20px rgba(37,211,102,.4);cursor:pointer;display:flex;align-items:center;justify-content:center;" aria-label="WhatsApp"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></button>
 </div>
 <style>.waOpt{padding:10px 12px;border-radius:10px;border:1px solid #e3e9f2;background:#fff;color:#0A2351;font-weight:700;font-size:13px;cursor:pointer;text-align:left;}.waOpt:hover{background:#f7f9fc;}</style>
 <script>document.getElementById('waBtn').addEventListener('click',()=>{const p=document.getElementById('waPanel');p.style.display=p.style.display==='none'?'block':'none';});document.querySelectorAll('.waOpt').forEach(b=>b.addEventListener('click',()=>window.open('https://wa.me/51900900003?text='+encodeURIComponent(b.dataset.msg),'_blank')));</script>
+<script>(function(){var els=document.querySelectorAll('section,.stats,.banner,footer');els.forEach(function(el){el.classList.add('reveal')});var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');io.unobserve(x.target)}})},{threshold:.12});els.forEach(function(el){io.observe(el)});var done=false;var so=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting&&!done){done=true;document.querySelectorAll('.stats b').forEach(function(b){var m=b.textContent.match(/^(\d+)(.*)$/);if(!m)return;var n=+m[1],suf=m[2],t0=null;function f(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1400);b.textContent=Math.round(n*p)+suf;if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)});so.disconnect()}})},{threshold:.3});var st=document.querySelector('.stats');if(st)so.observe(st);})();</script>
+<script>(function(){var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var h=document.getElementById('typeTitle');
+if(h&&!rm){var txt=h.textContent;h.textContent='';h.style.minHeight='3.3em';h.appendChild(document.createTextNode(''));var c=document.createElement('span');c.style.cssText='display:inline-block;width:3px;height:1em;background:#FB542B;margin-left:4px;vertical-align:-2px;animation:blink 1s steps(1) infinite';var st=document.createElement('style');st.textContent='@keyframes blink{50%{opacity:0}}';document.head.appendChild(st);h.appendChild(c);var i=0;(function t(){if(i<=txt.length){h.childNodes[0].textContent=txt.slice(0,i);i++;setTimeout(t,45)}else{c.remove()}})();}
+if(window.matchMedia('(hover:hover) and (prefers-reduced-motion: no-preference)').matches){document.querySelectorAll('.card3>div').forEach(function(el){el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='rotateX('+(-y*10)+'deg) rotateY('+(x*10)+'deg) translateY(-4px)';el.style.boxShadow='0 18px 40px rgba(251,84,43,.18)'});el.addEventListener('mouseleave',function(){el.style.transform='';el.style.boxShadow=''})});}
+var cv=document.getElementById('dust');
+if(cv&&!rm){var ctx=cv.getContext('2d'),W=0,Hh=0,ps=[];function rs(){var r=cv.parentElement.getBoundingClientRect();W=cv.width=Math.max(1,r.width);Hh=cv.height=Math.max(1,r.height)}rs();window.addEventListener('resize',rs);for(var k=0;k<45;k++)ps.push({x:Math.random()*2000,y:Math.random()*1200,r:Math.random()*2+.6,s:Math.random()*.5+.15,o:Math.random()*.5+.15});(function loop(){ctx.clearRect(0,0,W,Hh);ps.forEach(function(p){p.y-=p.s;p.x+=Math.sin(p.y/60)*.2;if(p.y<-5){p.y=Hh+5;p.x=Math.random()*W}ctx.beginPath();ctx.arc(p.x%W,p.y,p.r,0,7);ctx.fillStyle='rgba(251,140,80,'+p.o+')';ctx.fill()});requestAnimationFrame(loop)})();}
+var bo=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.querySelectorAll('.bar').forEach(function(b){b.style.width=b.dataset.w+'%'});bo.disconnect()}})},{threshold:.3});var st2=document.querySelector('.stats');if(st2)bo.observe(st2);})();</script>
+<script>(function(){var bar=document.getElementById('prog');window.addEventListener('scroll',function(){var h=document.documentElement,max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%'},{passive:true});
+var k=document.querySelector('.k-mono'),hero=document.querySelector('.hero');
+if(k&&hero&&window.matchMedia('(hover:hover) and (prefers-reduced-motion: no-preference)').matches){hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;k.style.transform='translate(calc(-50% + '+(x*36)+'px), calc(-54% + '+(y*28)+'px))'});hero.addEventListener('mouseleave',function(){k.style.transform=''})}})();</script>
 </body>
 </html>
